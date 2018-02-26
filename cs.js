@@ -72,6 +72,34 @@ function onDivClick(index) {
       }
 }
 
+function onSignUpClick() {
+
+  var username = document.getElementById("username").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  var userData = { username : username, email : email, password : password };
+
+  $jsonData = JSON.parse(JSON.stringify(userData));
+
+  $.ajax({
+  type : 'POST',
+  url : './adduser/adduser.php',
+  data : {
+      'jsonData' : $jsonData
+  },
+  datatype : 'json',
+  success : function ($response)
+  {
+
+
+  }, false : function(e) {
+        alert('failed');
+    }
+
+});
+}
+
 function changeStateToGameOn() {
     document.getElementById("state").textContent = "Game on!";
     gameOn = true;

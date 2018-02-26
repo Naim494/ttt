@@ -1,9 +1,9 @@
 <?php
 
-require '/Applications/XAMPP/xamppfiles/vendor/autoload.php'; // include Composer's autoloader
+include '/etc/php/vendor/autoload.php'; // include Composer's autoloader
 $client = new MongoDB\Client("mongodb://localhost:27017");
-$collection = $client->testdb->movie;
-$result = $collection->insertOne( [ 'name' => 'Cat'] );
+$collection = $client->testdb->movies;
+$result = $collection->insertOne( [ 'name' => 'Avengers'] );
 echo "Inserted with Object ID '{$result->getInsertedId()}'";
 
 ?>

@@ -24,18 +24,18 @@
         <form action="./" method="post">
 
                 <div class="col-sm-7">
-                  <input type="text" class="form-control mb-2" placeholder="Username" name="username">
+                  <input type="text" class="form-control mb-2" id="username" placeholder="Username" name="username">
                 </div>
                 <div class="col-sm-7">
-                   <input type="email" class="form-control mb-2" id="inputEmail3" placeholder="Email">
+                   <input type="email" class="form-control mb-2" id="email" placeholder="Email">
                 </div>
                 <div class="col-sm-7">
-                   <input type="password" class="form-control mb-2" id="signUpPswd" placeholder="Password">
+                   <input type="password" class="form-control mb-2" id="password" placeholder="Password">
                 </div>
 
 
                 <div class="col-auto">
-                  <button id="submitBtn" onclick="onSubmitClick()" type="submit" class="btn btn-primary mb-2"> Sign Up</button>
+                  <button id="submitBtn" onclick="onSignUpClick()" type="submit" class="btn btn-primary mb-2"> Sign Up</button>
                 </div>
         </form>
       </div>
@@ -71,15 +71,13 @@
 <div class="greetingContainer">
 
     <?php
-    require '/Applications/XAMPP/xamppfiles/vendor/autoload.php'; // include Composer's autoloader
-    $client = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-    $collection = $client->testdb->movie;
-    $result = $collection->insertOne( [ 'name' => 'Black Panther'] );
+    include '/etc/php/vendor/autoload.php'; // include Composer's autoloader
+    $client = new MongoDB\Client("mongodb://localhost:27017");
+    $collection = $client->testdb->movies;
+    $result = $collection->insertOne( [ 'name' => 'Avengers'] );
     echo "Inserted with Object ID '{$result->getInsertedId()}'";
 
-  //$mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
-    //$_POST["name"] != ""
       if (isset($_POST["username"])) {
           echo "Hello " . $_POST["username"]. ", ";
           echo "\n";
@@ -99,9 +97,7 @@
 
 </div>
 
-<!-- <div class="footer"> -->
   <?php include ('html/footer.html'); ?>
-<!-- </div> -->
 
 
 
