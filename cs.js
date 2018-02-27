@@ -88,7 +88,7 @@ function onSignUpClick() {
     url : 'http://130.245.171.78/login/index.php',
     data : jsonData,
     datatype : {
-        'jsonData' : $jsonData
+        'jsonData' : jsonData
     },
     success : function ($response)
     {
@@ -106,7 +106,7 @@ function onSignUpClick() {
     url : 'http://130.245.171.78/adduser/index.php',
     data : jsonData,
     datatype : {
-        'jsonData' : $jsonData
+        'jsonData' : jsonData
     },
     success : function ($response)
     {
@@ -135,7 +135,7 @@ function onLogInClick() {
   url : 'http://130.245.171.78/login/index.php',
   data : jsonData,
   datatype : {
-      'jsonData' : $jsonData
+      'jsonData' : jsonData
   },
   success : function ($response)
   {
