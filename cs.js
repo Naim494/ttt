@@ -80,16 +80,16 @@ function onSignUpClick() {
 
   var userData = { username : username, email : email, password : password };
 
-  var jsonData = JSON.parse(userData);
+  var jsonData = JSON.stringify(userData);
 
   if(email == null || email == "" ) {
     $.ajax({
     type : 'POST',
     url : 'http://130.245.171.78/login/index.php',
-    data : jsonData,
-    datatype : {
+    data : {
         'jsonData' : jsonData
     },
+    datatype : 'json',
     success : function ($response)
     {
 
@@ -104,10 +104,10 @@ function onSignUpClick() {
     $.ajax({
     type : 'POST',
     url : 'http://130.245.171.78/adduser/index.php',
-    data : jsonData,
-    datatype : {
+    data : {
         'jsonData' : jsonData
     },
+    datatype : 'json',
     success : function ($response)
     {
       $data = JSON.parse($response);
