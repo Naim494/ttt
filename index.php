@@ -43,14 +43,14 @@
 
       <div class="rightDiv">
         <div class="formContainer2">
-          <form class="form-inline">
+          <form action="./" method="post" class="form-inline">
 
               <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
               <div class="input-group mb-2 mr-sm-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text">@</div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+                <input type="text" class="form-control" id="logInUsername" placeholder="Username">
               </div>
 
               <label class="sr-only" for="inputPassword4">Password</label>
@@ -63,7 +63,7 @@
                 </label>
               </div>
 
-              <button type="submit" class="btn btn-primary mb-2">Log In</button>
+              <button type="submit" onclick="onLogInClick()" class="btn btn-primary mb-2">Log In</button>
           </form>
         </div>
       </div>

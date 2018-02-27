@@ -82,15 +82,65 @@ function onSignUpClick() {
 
   var jsonData = JSON.stringify(userData);
 
+  if(email == null || email == "" ) {
+    $.ajax({
+    type : 'POST',
+    url : 'http://130.245.171.78/login/index.php',
+    data : jsonData,
+    datatype : {
+        'jsonData' : $jsonData
+    },
+    success : function ($response)
+    {
+
+
+    }, false : function(e) {
+          alert('failed');
+      }
+
+    });
+  }
+  else {
+    $.ajax({
+    type : 'POST',
+    url : 'http://130.245.171.78/adduser/index.php',
+    data : jsonData,
+    datatype : {
+        'jsonData' : $jsonData
+    },
+    success : function ($response)
+    {
+      $data = JSON.parse($response);
+      console.log($data);
+
+    }, false : function(e) {
+          alert('failed');
+      }
+
+    });
+  }
+
+}
+
+function onLogInClick() {
+  var username = document.getElementById("logInUsername").value;
+  var password = document.getElementById("logInPswd").value;
+
+  var userData = { username : username, password : password };
+
+  var jsonData = JSON.stringify(userData);
+
   $.ajax({
   type : 'POST',
-  url : 'http://130.245.171.78/adduser/adduser.php',
-  data : {
-      'jsonData' : jsonData
+  url : 'http://130.245.171.78/login/index.php',
+  data : jsonData,
+  datatype : {
+      'jsonData' : $jsonData
   },
-  datatype : 'json',
   success : function ($response)
   {
+    $data = JSON.parse($response);
+    console.log($data);
 
 
   }, false : function(e) {
