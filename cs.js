@@ -80,7 +80,7 @@ function onSignUpClick() {
 
   var userData = { username : username, email : email, password : password };
 
-  var jsonData = JSON.stringify(userData);
+  var jsonData = JSON.parse(userData);
 
   if(email == null || email == "" ) {
     $.ajax({
