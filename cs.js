@@ -80,13 +80,13 @@ function onSignUpClick() {
 
   var userData = { username : username, email : email, password : password };
 
-  $jsonData = JSON.parse(JSON.stringify(userData));
+  var jsonData = JSON.stringify(userData);
 
   $.ajax({
   type : 'POST',
-  url : './adduser/adduser.php',
+  url : 'http://130.245.171.78/adduser/adduser.php',
   data : {
-      'jsonData' : $jsonData
+      'jsonData' : jsonData
   },
   datatype : 'json',
   success : function ($response)
