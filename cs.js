@@ -133,10 +133,38 @@ function onLogInClick() {
   $.ajax({
   type : 'POST',
   url : 'http://130.245.171.78/login/index.php',
-  data : jsonData,
-  datatype : {
+  data : {
       'jsonData' : jsonData
   },
+  datatype : 'json',
+  success : function ($response)
+  {
+    $data = JSON.parse($response);
+    console.log($data);
+
+
+  }, false : function(e) {
+        alert('failed');
+    }
+
+});
+}
+
+function onVerifyClick() {
+  var email = document.getElementById("verifyEmail").value;
+  var key = document.getElementById("verifyKey").value;
+
+  var userData = { email : email, key : key };
+
+  var jsonData = JSON.stringify(userData);
+
+  $.ajax({
+  type : 'POST',
+  url : 'http://130.245.171.78/verify/index.php',
+  data : {
+      'jsonData' : jsonData
+  },
+  datatype : 'json',
   success : function ($response)
   {
     $data = JSON.parse($response);
