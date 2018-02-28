@@ -90,7 +90,8 @@ function onSignUpClick() {
     datatype : 'json',
     success : function ($response)
     {
-
+      $data = JSON.parse($response);
+      console.log($data);
 
     }, false : function(e) {
           alert('failed');

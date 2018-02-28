@@ -2,8 +2,6 @@
 <?php
 $input = file_get_contents('php://input');
 
-if ($input) {
-
   $userData = json_decode(file_get_contents('php://input'));
   $key = randomString();
 
@@ -11,7 +9,7 @@ if ($input) {
   $client = new MongoDB\Client("mongodb://localhost:27017");
   $collection = $client->TicTacToe->users;
   //$result = $collection->insertOne( userData );
-  $result = $collection->insertOne( [ 'username' => $userData -> username, 'email' => $userData -> email, 'password' => $userData -> password, 'verified' => FALSE, 'key' => $key ] );
+  $result = $collection->insertOne( [ 'username' => $userData -> {"username"}, 'email' => $userData -> {"email"}, 'password' => $userData -> {"password"}, 'verified' => FALSE, 'key' => $key ] );
 
   $to = $userData -> email;
   $subject = "Tic Tac Toe Account Verification";
@@ -25,10 +23,6 @@ if ($input) {
   //$respone['userData'] = $userData;
   echo json_encode($respone);
 
-} else {
-  $respone['status'] = 'ERROR';
-  echo json_encode($respone);
-}
 
 function randomString() {
   $length = 10;
