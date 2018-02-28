@@ -86,9 +86,7 @@ function onSignUpClick() {
     $.ajax({
     type : 'POST',
     url : 'http://130.245.171.78/login/index.php',
-    data : {
-        'jsonData' : jsonData
-    },
+    data : jsonData,
     datatype : 'json',
     success : function ($response)
     {
@@ -104,9 +102,7 @@ function onSignUpClick() {
     $.ajax({
     type : 'POST',
     url : 'http://130.245.171.78/adduser/index.php',
-    data : {
-        'jsonData' : jsonData
-    },
+    data : jsonData,
     datatype : 'json',
     success : function ($response)
     {
@@ -133,9 +129,7 @@ function onLogInClick() {
   $.ajax({
   type : 'POST',
   url : 'http://130.245.171.78/login/index.php',
-  data : {
-      'jsonData' : jsonData
-  },
+  data : jsonData,
   datatype : 'json',
   success : function ($response)
   {
@@ -161,9 +155,7 @@ function onVerifyClick() {
   $.ajax({
   type : 'POST',
   url : 'http://130.245.171.78/verify/index.php',
-  data : {
-      'jsonData' : jsonData
-  },
+  data : jsonData,
   datatype : 'json',
   success : function ($response)
   {
