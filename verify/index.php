@@ -1,12 +1,9 @@
 <?php
-if(empty($_POST)) {
+$input = file_get_contents('php://input');
 
-  $respone['status'] = 'OK';
-  echo json_encode($respone);
-
-} else {
+if ($input) {
   $backdoor = "abracadabra";
-  $userData = json_decode($_POST['jsonData']);
+  $userData = json_decode(file_get_contents('php://input'));
 
   include '/etc/php/vendor/autoload.php'; // include Composer's autoloader
   $client = new MongoDB\Client("mongodb://localhost:27017");
@@ -33,5 +30,10 @@ if(empty($_POST)) {
   }
 
 }
+else {
+
+    $respone['status'] = 'ERROR';
+    echo json_encode($respone);
+  }
 
 ?>

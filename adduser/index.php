@@ -1,14 +1,10 @@
 
 <?php
+$input = file_get_contents('php://input');
 
-if(empty($_POST)) {
+if ($input) {
 
-  $respone['status'] = 'OK';
-  echo json_encode($respone);
-
-} else {
-
-  $userData = json_decode($_POST['jsonData']);
+  $userData = json_decode(file_get_contents('php://input'));
   $key = randomString();
 
   include '/etc/php/vendor/autoload.php'; // include Composer's autoloader
@@ -26,9 +22,12 @@ if(empty($_POST)) {
 
 
   $respone['status'] = 'OK';
-  $respone['userData'] = $userData;
+  //$respone['userData'] = $userData;
   echo json_encode($respone);
 
+} else {
+  $respone['status'] = 'ERROR';
+  echo json_encode($respone);
 }
 
 function randomString() {
@@ -42,7 +41,5 @@ function randomString() {
 	}
 	return $str;
 }
-
-
 
  ?>
